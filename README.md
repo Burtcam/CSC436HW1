@@ -4,7 +4,7 @@
  Written By
  Cameron Burt, Derrick Jacobs, Alex Farley, Aidan Hilt, Dan.... Forgot his last name.. but he helped! YAY DAN! 
 
- ##Execution instructions
+ ## Execution instructions
 
  To execute the program: 
  1. Create a .csv file 
@@ -14,7 +14,7 @@
  5. The possible candidate keys will be printed to the std out.
  
 
- ##Installation 
+ ## Installation 
  1. Install python 3.7
  2. run ```pip install -r requirements.txt``` 
 
