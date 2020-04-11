@@ -1,5 +1,5 @@
 # CSC436HW1
- A simple program in python 3.7 to take any relation, and a set of functional dependencies and returns the possible candidate keys. 
+ A simple program in python 3.7 to take any relation, and a set of functional dependencies and return the possible candidate keys. 
 
  Written By
  Cameron Burt, Derrick Jacobs, Alex Farley, Aidan Hilt, Dan.... Forgot his last name.. but he helped! YAY DAN! 
@@ -13,10 +13,8 @@
  4. Run the program and from the dialog box, open your file! 
  5. The possible candidate keys will be printed to the std out.
  
- ##Installation instructions from the requirements.txt
- 1. Navigate to directory and on the command line run ```pip install -r requirements.txt```
 
- ##Installation the hard way
+ ##Installation 
  1. Install python 3.7
  2. run ```pip install -r requirements.txt``` 
 
