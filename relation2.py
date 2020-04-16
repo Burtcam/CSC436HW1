@@ -181,8 +181,22 @@ def exteriors(combined, right, relation):
 
     return ext
 
+#takes neither + left side + a char to run against func Depends
+def closuretest(totest,funcDepends, relation):
+    #BC +A and BC +D
+    totest = sorted(totest)
+    totest = "".join(map(str, totest))
 
+    for key in funcDepends.keys():
+        if key in totest:
+            totest = totest + funcDepends[key]
 
+    #remove dupes
+    totest = "".join(set(totest))
+    if len(totest) == len(relation):
+        return True
+    else:
+        return False
 
 def main():
     msgbox('Please choose the file which holds the relation and functional dependencies')
@@ -215,8 +229,12 @@ def main():
     print ("exteriors = " , exter)
 
     #test closures of combined + each element of exteriors TODO
+    new = neither+leftNoDupes
+    new.append("")
+    print("test new = ", new)
 
 
+    print(closuretest(new,funcDepend,relation))
 
 
 main()
