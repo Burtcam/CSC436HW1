@@ -181,21 +181,48 @@ def exteriors(combined, right, relation):
 
     return ext
 
+def closurehelper(funcDepends, totest):
+
+    for key in funcDepends.keys():
+        if len(key)>1:
+            flag =1
+            for i in range(len(key)):
+                if key[i] in totest:
+                    flag = 1
+                else:
+                    flag = 0
+                    break
+        else:
+            flag = 1
+        if flag ==1:
+            totest = totest+funcDepends[key]
+        else:
+            continue
+
+    return totest
+
+
+
 #takes neither + left side + a char to run against func Depends
 def closuretest(totest,funcDepends, relation):
     #BC +A and BC +D
     totest = sorted(totest)
     totest = "".join(map(str, totest))
 
-    for key in funcDepends.keys():
-        if key in totest:
-            totest = totest + funcDepends[key]
+    #todo develop a way to go back to top of func keys on the event a new one is found and added to the list?
+    i =0
+    while i < len(funcDepends):
+        totest = closurehelper(funcDepends,totest)
+        i +=1
 
     #remove dupes
     totest = "".join(set(totest))
+    print("totest at the end", totest)
     if len(totest) == len(relation):
+        print("True")
         return True
     else:
+        print("false")
         return False
 
 def main():
@@ -226,9 +253,10 @@ def main():
 
     new = leftNoDupes+neither
     new = (''.join(map(str, leftNoDupes + neither)))
-    #test if combined is a closure
+    #test if combined is a closure if it is, print it and end it all right here!
     if ((closuretest(new, funcDepend, relation)) ==True):
         keyList.append(new)
+
 
 
 
@@ -236,11 +264,9 @@ def main():
     exter = exteriors(neither+leftNoDupes,rightNoDupes, relation)
     print ("exteriors = " , exter)
 
-    #test closures of combined + each element of exteriors TODO
-    #new = neither+leftNoDupes
-    #new.append("")
-    #print("test new = ", new)
 
+    #TODO deal with the problem of how to create a list of every permutation of "new" + the externs list then test each of them against closuretest
+    
 
     print(keyList)
 
