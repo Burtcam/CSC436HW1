@@ -221,7 +221,15 @@ def main():
 
     #find nither right nor left!
     neither =neitherRightOrLeft(relation,leftList,rightList)
-    print (neither)
+    print ("neither =" ,neither)
+    keyList = []
+
+    new = leftNoDupes+neither
+    new = (''.join(map(str, leftNoDupes + neither)))
+    #test if combined is a closure
+    if ((closuretest(new, funcDepend, relation)) ==True):
+        keyList.append(new)
+
 
 
     #combine the elements of neither and leftnoDupes then find the closures using the relational dependencies
@@ -229,12 +237,12 @@ def main():
     print ("exteriors = " , exter)
 
     #test closures of combined + each element of exteriors TODO
-    new = neither+leftNoDupes
-    new.append("")
-    print("test new = ", new)
+    #new = neither+leftNoDupes
+    #new.append("")
+    #print("test new = ", new)
 
 
-    print(closuretest(new,funcDepend,relation))
+    print(keyList)
 
 
 main()
